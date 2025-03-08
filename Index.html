@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Jalaram Furniture - Artisanal Excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #C5A47E;
+            --navy: #1A1F2B;
+            --cream: #F7F5F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--cream);
+            color: var(--navy);
+        }
+
+        /* Premium Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            text-align: center;
+        }
+
+        .main-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--navy);
+            letter-spacing: 2px;
+            position: relative;
+            animation: floatLogo 1.5s ease;
+        }
+
+        .owner-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-top: -0.8rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease 0.5s backwards;
+        }
+
+        /* Luxurious Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 31, 43, 0.3), rgba(26, 31, 43, 0.3)),
+                        url('https://images.unsplash.com/photo-1618220179428-22790b461013') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            right: -50px;
+            height: 150px;
+            background: var(--cream);
+            transform: rotate(-3deg);
+            box-shadow: 0 -20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideUp 1s ease;
+        }
+
+        /* Premium Product Showcase */
+        .products {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            padding: 2rem 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-image {
+            height: 380px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.08);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gold);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Enhanced Typography */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        /* Gold Accent Elements */
+        .cta-button {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            background: var(--gold);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        /* Artistic Footer */
+        .footer {
+            background: var(--navy);
+            color: white;
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--cream);
+            transform: rotate(2deg);
+            box-shadow: 0 -20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animations */
+        @keyframes floatLogo {
+            0% { top: -50px; opacity: 0; }
+            100% { top: 0; opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-logo { font-size: 2rem; }
+            .owner-name { font-size: 1.4rem; }
+            .hero-title { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo-container">
+                <div class="main-logo">Jay Jalaram Furniture</div>
+                <div class="owner-name">Jigar Vishwakarma</div>
+            </div>
+            <div class="nav-links">
+                <a href="#collections">Collections</a>
+                <a href="#craftsmanship">Craftsmanship</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Where Tradition Meets Modern Elegance</h1>
+            <button class="cta-button">Explore Masterpieces</button>
+        </div>
+    </section>
+
+    <section class="products" id="collections">
+        <h2 class="section-title">Artisan Collections</h2>
+        <div class="product-grid">
+            <!-- Repeat this block for each product -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1605773527851-7310f0ec5613" alt="Royal Sofa">
+                    <div class="product-badge">Best Seller</div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Regal Maharaja Sofa</h3>
+                    <p class="product-price">₹1,49,999</p>
+                </div>
+            </div>
+            <!-- Add more product cards -->
+            <!-- Previous code remains same until product-grid section -->
+
+<section class="products" id="collections">
+    <h2 class="section-title">Artisan Collections</h2>
+    <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1605773527851-7310f0ec5613" alt="Royal Sofa">
+                <div class="product-badge">Best Seller</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Regal Maharaja Sofa</h3>
+                <p class="product-price">₹1,49,999</p>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92" alt="Wooden Bed">
+                <div class="product-badge">New Arrival</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Heritage Wooden Bed</h3>
+                <p class="product-price">₹2,25,000</p>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1586105251261-72a756497a10" alt="Dining Set">
+                <div class="product-badge">Premium</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Luxury Dining Set</h3>
+                <p class="product-price">₹1,89,999</p>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc" alt="Lounge Chair">
+                <div class="product-badge">Limited Edition</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Modern Lounge Chair</h3>
+                <p class="product-price">₹85,999</p>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" alt="Bookshelf">
+                <div class="product-badge">Best Seller</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Classic Bookshelf</h3>
+                <p class="product-price">₹92,500</p>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1616627561839-074385245ff6" alt="Coffee Table">
+                <div class="product-badge">New Arrival</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Designer Coffee Table</h3>
+                <p class="product-price">₹67,999</p>
+            </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1634629371402-0e347682d1b9" alt="Recliner">
+                <div class="product-badge">Premium</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Velvet Recliner</h3>
+                <p class="product-price">₹1,12,000</p>
+            </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1616464916356-3a777b2b60b1" alt="Console Table">
+                <div class="product-badge">Best Seller</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Traditional Console Table</h3>
+                <p class="product-price">₹78,500</p>
+            </div>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1599696848652-f0ff23bc911f" alt="Wardrobe">
+                <div class="product-badge">New Arrival</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Contemporary Wardrobe</h3>
+                <p class="product-price">₹2,75,000</p>
+            </div>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1604066867775-43f48e3957d8" alt="Sideboard">
+                <div class="product-badge">Premium</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Elegant Sideboard</h3>
+                <p class="product-price">₹1,34,999</p>
+            </div>
+        </div>
+
+        <!-- Product 11 -->
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6" alt="Office Desk">
+                <div class="product-badge">New Arrival</div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-name">Executive Office Desk</h3>
+                <p class="product-price">₹1,67,000</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Rest of the code remains same -->
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Jay Jalaram Furniture</h3>
+                <p>Crafting Excellence Since 1995</p>
+            </div>
+            <div class="footer-section">
+                <h3>Visit Us</h3>
+                <p>236/Santoshi Nagar</p>
+                <p>Near Khodiyar Nagar Char Rasta</p>
+                <p>New VIP Road, Vadodara</p>
+                <p>Gujarat - 390019</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>+91 98765 43210</p>
+                <p>contact@jayjalaram.com</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add Craftsmanship and Contact sections -->
+
+    <script>
+        // Interactive Elements
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateY(0) rotateX(0)';
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelector('.hero').style.backgroundPositionY = `${scrolled * 0.5}px`;
+        });
+    </script>
+</body>
+</html>>
